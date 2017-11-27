@@ -78,8 +78,8 @@ class CommentController extends Controller
         $data['email'] = (!empty($data['email'])) ? $data['email'] : $comment->user->email;
         $data['name'] = (!empty($data['name'])) ? $data['name'] : $comment->user->name;
 
-        //тут вывод 1 го коммента в дом дерево через ajax
-        //$display_comment = view('site.blog_single_comment_tree')->with('data', $data)->render();
+        ////тут вывод 1 го коммента в дом дерево через ajax
+        ////$display_comment = view('site.blog_single_comment_tree')->with('data', $data)->render();
 
         //return Response::json(['success'=>true, 'comment'=>$display_comment, 'data'=>$data]);
         return json_encode(['message'=>'OK! Hello, am was here...']);

@@ -45,7 +45,7 @@ Route::get('/blog', 'BlogController@blog')->name('index.blog');
 // Show one blog post with comments, form comment add...(blog single)
 Route::get('/blog/{id}','BlogController@blogSingle')->name('getBlog.single');
 
-//Store comment on blog post (or article) front page from all users (guest)
+//Store comment on blog post (article) front page from all users (guests)
 Route::resource('comment', 'CommentController', ['only'=>['store']]);
 
 Auth::routes();
