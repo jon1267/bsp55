@@ -56,73 +56,6 @@
                                 <br>No comments on this article
                             </h4>
                         @endif
-                        {{--<ul class="media-list">
-                            <li class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" src="/bspeak/assets/img/user1.gif" alt="" />
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Vestibulum et eros consectetur</h4>
-                                    <p>
-                                        Donec sit amet ligula enim. Duis vel condimentum massa.
-                                        Maecenas eget congue dui. Vestibulum et eros consectetur,
-                                        interdum nibh et, volutpat dolor.
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- COMMENT SECTION - ONE END-->
-                            <li class="media">
-                                <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" src="/bspeak/assets/img/user2.gif" alt=""  />
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Lorem ipsum dolor sit amet</h4>
-                                    <p>
-                                        Donec sit amet ligula enim. Duis vel condimentum massa.
-                                        Maecenas eget congue dui. Vestibulum et eros consectetur,
-                                        interdum nibh et, volutpat dolor.
-                                    </p>
-                                    <!-- Nested media object -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-circle" src="/bspeak/assets/img/user1.gif" alt=""  />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Nulla gravida vitae neque </h4>
-                                            Donec sit amet ligula enim. Duis vel condimentum massa.
-                                            Maecenas eget congue dui. Vestibulum et eros consectetur,
-                                            interdum nibh et, volutpat dolor.
-                                            <!-- Nested media object -->
-                                            <div class="media">
-                                                <a class="pull-left" href="#">
-                                                    <img class="media-object img-circle" src="/bspeak/assets/img/user3.gif" alt="" >
-                                                </a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">Donec sit amet ligula enim</h4>
-                                                    Donec sit amet ligula enim. Duis vel condimentum massa.
-                                                    Maecenas eget congue dui. Vestibulum et eros consectetur,
-                                                    interdum nibh et, volutpat dolor.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Nested media object -->
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object img-circle" src="/bspeak/assets/img/user2.gif" alt=""  />
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Vestibulum et eros consectetur</h4>
-                                            Donec sit amet ligula enim. Duis vel condimentum massa.
-                                            Maecenas eget congue dui. Vestibulum et eros consectetur,
-                                            interdum nibh et, volutpat dolor.
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- COMMENT SECTION - TWO END-->
-
-                        </ul>--}}
 
                         <hr />
                     </div>
@@ -173,26 +106,32 @@
                     <a href="#" class="btn btn-success btn-block">WANT TO SAY SOMETHING ?
                     </a>
                     <br />
-                    <form>
+                    <form action="{{route('comment.store')}}" method="post" id="leave_reply">
+                        {{ csrf_field() }}
+                        <input id="comment_blogSingle_id" type="hidden" name="comment_blogSingle_id" value="{{$blogSingle->id}}">
+                        <input id="comment_parent" type="hidden" name="comment_parent" value="0">
+                        @if(!Auth::check())
                         <div class="col-lg-12 col-md-12 ">
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Name" />
+                                <input type="text" name="name" id="name" class="form-control" required="required" placeholder="Name" />
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Email address" />
+                                <input type="text" name="email" id="email" class="form-control" required="required" placeholder="Email address" />
                             </div>
                         </div>
+                        @endif
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="4" placeholder="Message"></textarea>
+                                <textarea name="text" id="text" required="required" class="form-control" rows="4" placeholder="Message"></textarea>
                             </div>
                         </div>
+                        <div class="ajax_result"></div>
                         <div class="col-lg-12 col-md-12">
-                            <button type="submit" class="btn btn-danger">COMMENT NOW</button>
+                            <button type="submit" id="submit" class="btn btn-danger">COMMENT NOW</button>
+                        </div>
 
-                        </div>
                     </form>
                 </div>
                 <div id="facebook-div-sec">

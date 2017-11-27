@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 22 2017 г., 15:50
+-- Время создания: Ноя 26 2017 г., 00:02
 -- Версия сервера: 5.7.19
--- Версия PHP: 7.1.7
+-- Версия PHP: 7.0.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,9 @@ INSERT INTO `comments` (`id`, `text`, `name`, `email`, `parent_id`, `article_id`
 (2, 'Comment from Max. Donec sit amet ligula enim. Duis vel condimentum massa. Maecenas eget congue dui. Vestibulum et eros consectetur, interdum nibh et, volutpat dolor.', 'Max', 'max@test.com', 0, 1, NULL, '2017-11-02 12:40:57', '2017-11-02 12:40:57'),
 (3, 'I am here. Donec sit amet ligula enim. Duis vel condimentum massa. Maecenas eget congue dui. Vestibulum et eros consectetur, interdum nibh et, volutpat dolor.', 'Petro', 'pet@test.com', 2, 1, NULL, '2017-11-02 12:40:57', '2017-11-02 12:40:57'),
 (4, 'Hello for you again. Donec sit amet ligula enim. Duis vel condimentum massa. Maecenas eget congue dui. Vestibulum et eros consectetur, interdum nibh et, volutpat dolor.', 'Mikola', 'kent@test.com', 3, 1, NULL, '2017-11-02 12:40:57', '2017-11-02 12:40:57'),
-(5, 'Donec sit amet ligula enim. Duis vel condimentum massa. Maecenas eget congue dui. Vestibulum et eros consectetur, interdum nibh et, volutpat dolor.', 'Vasya', 'uoy@test.com', 2, 1, NULL, '2017-11-22 14:15:30', '2017-11-22 14:15:30');
+(5, 'Donec sit amet ligula enim. Duis vel condimentum massa. Maecenas eget congue dui. Vestibulum et eros consectetur, interdum nibh et, volutpat dolor.', 'Vasya', 'uoy@test.com', 2, 1, NULL, '2017-11-22 14:15:30', '2017-11-22 14:15:30'),
+(6, 'Manu manu sit amet ligula enim. Duis vel condimentum massa. Maecenas eget congue dui. Vestibulum et eros consectetur, interdum nibh et, volutpat dolor.', 'Manu', 'manu@test.com', 0, 1, NULL, '2017-11-22 14:15:30', '2017-11-22 14:15:30'),
+(7, 'FOR Manu sit amet ligula enim. Duis vel condimentum massa. Maecenas eget congue dui. Vestibulum et eros consectetur, interdum nibh.', 'For Manu', 'for.manu@test.com', 6, 1, NULL, '2017-11-22 14:15:30', '2017-11-22 14:15:30');
 
 --
 -- Индексы сохранённых таблиц
@@ -69,7 +71,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

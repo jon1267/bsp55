@@ -33,14 +33,21 @@ class BlogController extends SiteController
     public function blogSingle($id)
     {
         $blogSingle = Article::with('comments')->where('id', $id)->first();
+        // это вытащит статью блога, со связ. комментами у к-рых parent_id = 0
+        /*$blogSingle = Article::with(['comments' => function ($query) {
+            $query->where('parent_id',0);
+        }])->where('id', $id)->first();*/
+
         if(!$blogSingle) abort(404);//нет статьи с этим $id - на стр 404 (app\Exceptions\Handler.php)
         $this->template = 'site.portfolio'; //шаблон тот! название неудачное:) будет др.$content
 
-        //dd($blogSingle->comments->groupBy('parent_id')); //получается и без всяких индексов :)
         //для удобства построения дерева комментов делаю так,
         //хотя оно-же есть в и связи, но там нет группировки по parent_id.
-        $com = $blogSingle->comments->groupBy('parent_id');// это дерево комментов для статьи $id
-        //dd($com);
+        $com = $blogSingle->comments->groupBy('parent_id');//дерево комментов для статьи $id
+
+        //$comParent = $blogSingle->comments->where('parent_id',0);
+        //$comTree = $blogSingle->comments->where('parent_id','<>',0)->groupBy('parent_id');
+        //dd($blogSingle, $com);
 
         $content = view('site.blog_single')
             ->with(['blogSingle' => $blogSingle, 'com' => $com])
