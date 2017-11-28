@@ -13,7 +13,7 @@
             &nbsp;&nbsp; says: <span class="commentNumber pull-right">#</span>
         </h5>
 
-        <p class="item-text">
+        <p id="item-text-{{ $item->id }}" class="item-text">
             {{ $item->text }}
 
             <br>

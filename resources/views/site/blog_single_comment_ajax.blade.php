@@ -17,7 +17,7 @@
                 &nbsp;&nbsp; says: <span class="commentNumber pull-right">#{{ $data['id'] }}</span>
             </h5>
 
-            <p class="item-text">
+            <p id="item-text-{{ $data['id']}}" class="item-text">
                 {{ $data['text'] }}
                 <br>
                 <a id="cancel-reply-{{$data['id']}}" hidden class="cancel-reply-link" href="#" onclick="return removeForm('{{$data['id']}}')"> Cancel </a> {{--ссылка убрать ответ на комментарий--}}

@@ -43,8 +43,8 @@ jQuery(document).ready(function ($) {
                                     // дочерний элемент, те ответ на уже существующий,
                                     // html.comment формир. в CommentController стр. 82 и возвр. сюда (return Response::json...)
                                     //$('form#leave_reply').parent().after('<div class="children">' + html.comment +'</div>');
-                                    $('div#comment-'+html.data.parent_id+' div.media-body p.item-text')
-                                        .after('<div class="media-body">' + html.comment + '</div>');
+                                    $('div#comment-'+html.data.parent_id+' div.media-body p#item-text-'+html.data.parent_id)
+                                        .after('<div class="media">' + html.comment + '</div>');
                                     $('a.cancel-reply-link').click();
                                 }
                             });
