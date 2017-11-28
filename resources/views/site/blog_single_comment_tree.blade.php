@@ -13,9 +13,12 @@
             &nbsp;&nbsp; says: <span class="commentNumber pull-right">#</span>
         </h5>
 
-        <p>
+        <p class="item-text">
             {{ $item->text }}
-            <br><a class="reply-link" href="#"> Reply </a> {{--ссылка ответить на комментарий--}}
+
+            <br>
+            <a id="cancel-reply-{{$item->id}}" hidden class="cancel-reply-link" href="#" onclick="return removeForm('{{$item->id}}')"> Cancel </a> {{--ссылка убрать ответ на комментарий--}}
+            <a id="reply-{{$item->id}}" class="reply-link" href="#" onclick="return moveForm('{{$item->id}}')"> Reply </a> {{--ссылка ответить на комментарий--}}
         </p>
 
         {{--проверяем - есть ли ответы на корневой коммент, и если

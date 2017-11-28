@@ -50,12 +50,16 @@
                                     @endif
                                     @include('site.blog_single_comment_tree', ['items'=>$comments])
                                 @endforeach
+
+                                <div id="start" class="insert_new_parent_comment"></div> <!-- для родительских комментариев вставл ajax см jon_scripts.js -->
+
                             </ul>
                             @else
                             <h4 class="media-heading">
                                 <br>No comments on this article
                             </h4>
                         @endif
+
 
                         <hr />
                     </div>
@@ -105,7 +109,7 @@
                 <div id="comment-sec" class="text-center" >
                     <a href="#" class="btn btn-success btn-block">WANT TO SAY SOMETHING ?
                     </a>
-                    <br />
+                    <br id="start-form-position">
                     <form action="{{route('comment.store')}}" method="post" id="leave_reply">
                         {{ csrf_field() }}
                         <input id="comment_blogSingle_id" type="hidden" name="comment_blogSingle_id" value="{{$blogSingle->id}}">
