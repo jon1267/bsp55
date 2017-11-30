@@ -50,6 +50,7 @@ class CommentController extends Controller
         if(!isset($data['email']) || is_null($data['email'])) $data['email']='';
         */
 
+        // хотелось бы 'email' => 'sometimes|required|email', но потом лезет ошибка...
         $validator = Validator::make($data, [
             'article_id' => 'integer|required',
             'parent_id' => 'integer|required',

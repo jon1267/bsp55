@@ -51,7 +51,10 @@ jQuery(document).ready(function ($) {
                     }
                 },
                 error: function () {
-                    
+                    $('.ajax_result').css('color', 'red').append('<br><strong>Ошибка...</strong>');
+                    $('.ajax_result').delay(3000).fadeOut(1000, function() {
+                        $('a.cancel-reply-link').click();
+                    });
                 },
 
             });
