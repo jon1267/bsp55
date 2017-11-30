@@ -54,13 +54,14 @@
                                 <div id="start" class="insert_new_parent_comment"></div> <!-- для родительских комментариев вставл ajax см jon_scripts.js -->
 
                             </ul>
-                            @else
-                            <h4 class="media-heading">
-                                <br>No comments on this article
-                            </h4>
+                        @else
+                            {{-- надо для вставки первого коммента --}}
+                            <h2>Recent Comments : </h2>
+                            <ul class="media-list">
+                                <div id="start" class="insert_new_parent_comment"></div> <!-- для родительских комментариев вставл ajax см jon_scripts.js -->
+                                {{--<p class="hide-after-comment">No comments on this article</p> это прятать привставке 1-го коммента --}}
+                            </ul>
                         @endif
-
-
                         <hr />
                     </div>
                 </div>

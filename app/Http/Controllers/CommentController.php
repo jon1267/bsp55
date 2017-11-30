@@ -54,8 +54,8 @@ class CommentController extends Controller
             'article_id' => 'integer|required',
             'parent_id' => 'integer|required',
             'text' => 'string|required'
-
         ]);
+
         $validator->sometimes(['name', 'email'], 'required|max:255', function($input) {
             return !Auth::check();
         });
